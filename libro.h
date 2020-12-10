@@ -9,16 +9,17 @@ using namespace std;
 class Libro {
 	public:
 		Libro(); // costruttore default
-		Libro(string); // costruttore per utente
+		Libro(string); // costruttore copia
 
-		void setTitolo(string); // per inserire un titolo
-		string getTitolo() const; // per stampare un titolo
-		bool operator==(Libro); // sovraccarico == per oggetti Libro
+		void setTitolo(string);
+		string getTitolo() const;
+		bool operator==(Libro);
 		
 	private:
 		string titolo; // ogni oggetto libro ha un titolo
-}; // chiudere sempre la classe con il ;
+};
 
+// sovraccarico output <<
 std::ostream& operator<<(std::ostream&, const Libro&);
 
 #endif //_LIBRO_H
