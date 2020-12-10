@@ -15,6 +15,7 @@ bool Libro::operator==(Libro l) {
 	return (getTitolo() == l.getTitolo());
 } // sovraccarico == (per oggetti Libro)
 
+// sovraccarico l'operatore << per permettere la stampa degli oggetti Libro
 std::ostream& operator<<(std::ostream& stream, const Libro& l){
 	stream << l.getTitolo();
 	return stream;

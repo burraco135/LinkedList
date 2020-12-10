@@ -55,5 +55,10 @@ int main() {
 	// stampo lista_interi
 	lista_interi.stampa();
 
+	// | ----- Inserire qui delle operazioni sulla lista di interi ----- | //
+	// esempio - cancellare un elemento e stampare la lista aggiornata:
+	// lista_interi.cancLista(indice_interi = lista_interi.succLista(primoLista));
+	// lista_interi.stampa();
+
 	return 0;
 }
