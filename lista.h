@@ -6,7 +6,7 @@ using namespace std;
 
 // permette di creare oggetti della classe di tipo T (int, double, float, struct)
 // il numero massimo di tali oggetti è indicato da max
-template <typename T, int max> 
+template <class T, int max> 
 class Lista
 {
   public:
@@ -14,7 +14,7 @@ class Lista
     typedef int posizione;  
     
     Lista(); //costruttore
-		Lista(const Lista<T,max>&); // costruttore copia
+		Lista(const Lista<T, max>&); // costruttore copia
     ~Lista(); //distruttore
     
     // operatori
@@ -37,7 +37,7 @@ class Lista
 
 // ----- Implementazione della classe Lista ----- //
 // costruttore
-template <typename T, int max> 
+template <class T, int max> 
 Lista<T, max>::Lista() { creaLista(); }
 
 // costruttore copia
@@ -51,18 +51,18 @@ Lista<T,max>::Lista(const Lista<T,max>& l)
 }
 
 // distruttore
-template <typename T, int max> 
+template <class T, int max> 
 Lista<T, max>::~Lista() {}
 
 // operatori
-template <typename T, int max> 
+template <class T, int max> 
 void Lista<T, max>::creaLista() { lunghezza = 0; } // crea una lista vuota
 
-template <typename T, int max> 
+template <class T, int max> 
 bool Lista<T, max>::listaVuota() const { return lunghezza == 0; }
 // 1 se la lista è vuota, 0 altrimenti
 
-template <typename T, int max> 
+template <class T, int max> 
 typename Lista<T,max>::tipoelem Lista<T, max>::leggiLista(posizione p) const {
   if ( (0 < p) && (p < lunghezza + 1)) { // precondizione
 		return(elementi[p-1]);
@@ -71,17 +71,17 @@ typename Lista<T,max>::tipoelem Lista<T, max>::leggiLista(posizione p) const {
 	}
 }
 
-template <typename T, int max> 
+template <class T, int max> 
 void Lista<T, max>::scriviLista(tipoelem a, posizione p) {
   if ( (0 < p) && (p <= lunghezza) ) {
     elementi[p-1] = a;
   }
 }
 
-template <typename T, int max> 
+template <class T, int max> 
 typename Lista<T,max>::posizione Lista<T, max>::primoLista() const { return (1); }
 
-template <typename T, int max>
+template <class T, int max>
 bool Lista<T, max>::fineLista(posizione p) const {
   if ( (p > 0) && (p < lunghezza + 1) ) {
     return (p == lunghezza + 1);
@@ -90,7 +90,7 @@ bool Lista<T, max>::fineLista(posizione p) const {
   }
 }
 
-template <typename T, int max> 
+template <class T, int max> 
 typename Lista<T,max>::posizione Lista<T, max>::succLista(posizione p) const {
   if ( (0 < p) && (p <= lunghezza) ) {
     return (p + 1);
@@ -99,7 +99,7 @@ typename Lista<T,max>::posizione Lista<T, max>::succLista(posizione p) const {
   }
 }
 
-template <typename T, int max> 
+template <class T, int max> 
 typename Lista<T,max>::posizione Lista<T, max>::predLista(posizione p) const {
   if ( (1 < p) && (p <= lunghezza) ) {
     return (p - 1);
@@ -108,7 +108,7 @@ typename Lista<T,max>::posizione Lista<T, max>::predLista(posizione p) const {
   }
 }
 
-template <typename T, int max> 
+template <class T, int max> 
 void Lista<T, max>::insLista(tipoelem a, posizione p) {
   if ( (0 < p) && (p <= lunghezza + 1) ) {
     for (int i = lunghezza; i >= p; i--) {
@@ -120,7 +120,7 @@ void Lista<T, max>::insLista(tipoelem a, posizione p) {
   }
 }
 
-template <typename T, int max> 
+template <class T, int max> 
 void Lista<T, max>::cancLista(posizione p) {
   if ( (p > 0) && (p <= lunghezza + 1) ) {
     elementi[p-1] = 0;
@@ -133,7 +133,7 @@ void Lista<T, max>::cancLista(posizione p) {
   }
 }
 
-template <typename T, int max>
+template <class T, int max>
 void Lista<T,max>::stampa(){
 	for(int i = 0; i < lunghezza; i++){
 		cout << elementi[i] << endl;
