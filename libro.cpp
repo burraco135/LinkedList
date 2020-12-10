@@ -1,4 +1,7 @@
 #include "libro.h"
+#include <iostream>
+
+using namespace std;
 
 Libro::Libro() { titolo = ""; } // costruttore default
 
@@ -11,3 +14,8 @@ string Libro::getTitolo() const { return(titolo); } // per stampare un titolo
 bool Libro::operator==(Libro l) {
 	return (getTitolo() == l.getTitolo());
 } // sovraccarico == (per oggetti Libro)
+
+std::ostream& operator<<(std::ostream& stream, const Libro& l){
+	stream << l.getTitolo();
+	return stream;
+}
